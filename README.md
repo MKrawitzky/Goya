@@ -10,7 +10,7 @@
     ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
     ░                                              ░
     ░   "In the darkness, structure is revealed   ░
-    ░         — not hidden."                       ░
+    ░, not hidden."                       ░
     ░                                              ░
     ░    .d file  →  per-precursor 1/K₀            ░
     ░    b/y ions  →  8-feature SGD rescoring      ░
@@ -41,7 +41,7 @@ Michael Krawitzky - built within [ZIGGY](https://github.com/MKrawitzky/Ziggy), t
 
 ## What
 
-A **native ddaPASEF DDA search engine** for Bruker timsTOF. Reads `.d` raw files directly via the TimsData SDK — no mzML, no ProteoWizard. Extracts per-precursor 1/K₀ from TIMS scan boundaries rather than estimated window centres, making it the first DDA engine to treat ion mobility as a first-class scoring dimension.
+A **native ddaPASEF DDA search engine** for Bruker timsTOF. Reads `.d` raw files directly via the TimsData SDK, no mzML, no ProteoWizard. Extracts per-precursor 1/K₀ from TIMS scan boundaries rather than estimated window centres, making it the first DDA engine to treat ion mobility as a first-class scoring dimension.
 
 **Pipeline:**
 
@@ -49,7 +49,7 @@ A **native ddaPASEF DDA search engine** for Bruker timsTOF. Reads `.d` raw files
 analysis.tdf  →  ddaPASEF MS2 frames
   │
   ├─ Per-precursor 1/K₀ from TIMS scan range boundaries
-  │   (not from isolation window centre — the actual measurement)
+  │   (not from isolation window centre, the actual measurement)
   │
   ├─ ±10 ppm precursor mass match
   ├─ 1/K₀ CCS filter (theoretical vs measured)
@@ -63,19 +63,19 @@ analysis.tdf  →  ddaPASEF MS2 frames
   └─ Benjamini-Hochberg FDR @ 1%
 ```
 
-Designed for ddaPASEF and **HLA immunopeptidomics** — the native z=1 ion extraction without forced charge assumptions makes Goya particularly effective for MHC class I peptides.
+Designed for ddaPASEF and **HLA immunopeptidomics**, the native z=1 ion extraction without forced charge assumptions makes Goya particularly effective for MHC class I peptides.
 
 ---
 
 ## When
 
-Developed 2024–2026 alongside GauDIA. The DDA companion to ZIGGY's DIA engine suite. Built because the same mzML problem that motivated GauDIA applies equally to DDA: when you convert ddaPASEF data to mzML, the TIMS-measured 1/K₀ per precursor is either lost or averaged to the isolation window centre — a fundamentally less accurate value.
+Developed 2024–2026 alongside GauDIA. The DDA companion to ZIGGY's DIA engine suite. Built because the same mzML problem that motivated GauDIA applies equally to DDA: when you convert ddaPASEF data to mzML, the TIMS-measured 1/K₀ per precursor is either lost or averaged to the isolation window centre, a fundamentally less accurate value.
 
 ---
 
 ## Where
 
-Runs locally — instrument PC or analysis workstation. Python 3.9+, Bruker TimsData SDK, a ddaPASEF `.d` directory, a FASTA database. Within [ZIGGY](https://github.com/MKrawitzky/Ziggy) it populates the Searches tab automatically alongside MSFragger DDA, Comet, X!Tandem, and MSBooster.
+Runs locally, instrument PC or analysis workstation. Python 3.9+, Bruker TimsData SDK, a ddaPASEF `.d` directory, a FASTA database. Within [ZIGGY](https://github.com/MKrawitzky/Ziggy) it populates the Searches tab automatically alongside MSFragger DDA, Comet, X!Tandem, and MSBooster.
 
 ---
 
@@ -83,15 +83,15 @@ Runs locally — instrument PC or analysis workstation. Python 3.9+, Bruker Tims
 
 **Why name a DDA engine after Goya?**
 
-Francisco de Goya i Lucientes was born in 1746 in Fuendetodos — a village of a few hundred people in the dry Aragonese steppe, 44 km south of Zaragoza. He became court painter to King Charles IV. He survived war, illness, and deafness. In his final years, confined and isolated in the Quinta del Sordo (House of the Deaf Man), he painted directly onto the walls of his home: the series now known as the *Pinturas Negras* — the Black Paintings.
+Francisco de Goya i Lucientes was born in 1746 in Fuendetodos, a village of a few hundred people in the dry Aragonese steppe, 44 km south of Zaragoza. He became court painter to King Charles IV. He survived war, illness, and deafness. In his final years, confined and isolated in the Quinta del Sordo (House of the Deaf Man), he painted directly onto the walls of his home: the series now known as the *Pinturas Negras*, the Black Paintings.
 
-Saturn Devouring His Son. The Witches' Sabbath. A Dog. Saturno. These were not public works. They were not commissions. They were Goya painting what he actually saw — structure emerging from darkness, form from chaos, signal from noise.
+Saturn Devouring His Son. The Witches' Sabbath. A Dog. Saturno. These were not public works. They were not commissions. They were Goya painting what he actually saw, structure emerging from darkness, form from chaos, signal from noise.
 
-That is what Goya the engine does. ddaPASEF data is messy — co-isolated precursors, TIMS ramp artifacts, chimeric fragmentation. Goya extracts per-precursor 1/K₀ from the TIMS scan boundaries, filters by shape, rescores by eight independent features, and finds the signal in the darkness.
+That is what Goya the engine does. ddaPASEF data is messy, co-isolated precursors, TIMS ramp artifacts, chimeric fragmentation. Goya extracts per-precursor 1/K₀ from the TIMS scan boundaries, filters by shape, rescores by eight independent features, and finds the signal in the darkness.
 
-**The province of Aragón also gave the world Héroes del Silencio** — Enrique Bunbury, Juan Valdivia, Joaquín Cardiel, Pedro Andreu. One of the greatest rock bands ever to record in Spanish. From Zaragoza, same city. Their name gave rise to [Silent Heroes](https://github.com/MKrawitzky/SilentHeroes), the method advisor in ZIGGY. Aragón, once again, to the world.
+**The province of Aragón also gave the world Héroes del Silencio**, Enrique Bunbury, Juan Valdivia, Joaquín Cardiel, Pedro Andreu. One of the greatest rock bands ever to record in Spanish. From Zaragoza, same city. Their name gave rise to [Silent Heroes](https://github.com/MKrawitzky/SilentHeroes), the method advisor in ZIGGY. Aragón, once again, to the world.
 
-> *"In the darkness, structure is revealed — not hidden."*
+> *"In the darkness, structure is revealed, not hidden."*
 
 ---
 
